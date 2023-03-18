@@ -6,6 +6,8 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 
+import com.google.android.material.checkbox.MaterialCheckBox;
+import com.google.android.material.textfield.TextInputEditText;
 import com.ualr.layoutassignment.databinding.ActivityMainBinding;
 
 public class MainActivity extends AppCompatActivity {
@@ -27,18 +29,37 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 /*call "calculateTotal"*/
-                calculateTotal();
+                String formattedDecimal = String.format("%.2f", calculateTotal());
+                mBinding.totalDisplayEditText.setHint(formattedDecimal);
             }
         });
     }
 
-    private String calculateTotal(){
-       float subTotal = 0;
-       String total = "The 'calculateTotal' method is under construction.";
 
-       /* If invoice checkbox 1 is checked, then get text from invoice textinput 1. Convert it to float. Store value in subTotal. Repeat for checkboxes 2-4. */
-       /* Once all values are added to subTotal, convert subTotal from float to a string and store in variable called "total".*/
+    private Double calculateTotal(){
+       Double total;
+
+       /* If invoice checkbox 1 is checked, then get text from invoice text input 1. Repeat for checkboxes 2-4. */
+       /* Once all values are retrieved, add them together and store in variable called "total".*/
+
+        Double item1 = addIfChecked(this.mBinding.invoiceItem1Checkbox, this.mBinding.invoiceItem1EditText);
+        Double item2 = addIfChecked(this.mBinding.invoiceItem2Checkbox, this.mBinding.invoiceItem2EditText);
+        Double item3 = addIfChecked(this.mBinding.invoiceItem3Checkbox, this.mBinding.invoiceItem3EditText);
+        Double item4 = addIfChecked(this.mBinding.invoiceItem4Checkbox, this.mBinding.invoiceItem4EditText);
+
+        total = item1 + item2 + item3 + item4;
 
        return total;
     }
+
+    private Double addIfChecked(MaterialCheckBox itemCheckbox, TextInputEditText editText){
+        String itemPrice = editText.getText().toString();
+        if(itemCheckbox.isChecked()){
+            return Double.parseDouble(itemPrice);
+        } else{
+            /*do nothing*/
+            return 0.00;
+        }
+    }
+
 }

@@ -300,6 +300,7 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/textView2">
 
+                    <!--Invoice item 1-->
                     <LinearLayout
                         android:id="@+id/invoice_item_1"
                         android:layout_width="match_parent"
@@ -338,6 +339,8 @@
 
                                 <com.google.android.material.textfield.TextInputEditText
                                     android:id="@+id/invoice_item_1_editText"
+                                    android:inputType="numberDecimal"
+                                    android:hint="@string/_00_00"
                                     android:layout_width="100dp"
                                     android:layout_height="wrap_content"
                                     android:layout_marginLeft="2dp"
@@ -363,7 +366,7 @@
                             android:id="@+id/invoice_item_2_checkbox"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Product 01" />
+                            android:text="Product 02" />
 
                         <androidx.constraintlayout.widget.ConstraintLayout
                             android:id="@+id/invoice_item_2_constraintLayout"
@@ -389,6 +392,8 @@
 
                                 <com.google.android.material.textfield.TextInputEditText
                                     android:id="@+id/invoice_item_2_editText"
+                                    android:inputType="numberDecimal"
+                                    android:hint="@string/_00_00"
                                     android:layout_width="100dp"
                                     android:layout_height="wrap_content"
                                     android:layout_marginLeft="2dp"
@@ -414,7 +419,7 @@
                             android:id="@+id/invoice_item_3_checkbox"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Product 01" />
+                            android:text="Product 03" />
 
                         <androidx.constraintlayout.widget.ConstraintLayout
                             android:id="@+id/invoice_item_3_constraintLayout"
@@ -440,6 +445,8 @@
 
                                 <com.google.android.material.textfield.TextInputEditText
                                     android:id="@+id/invoice_item_3_editText"
+                                    android:inputType="numberDecimal"
+                                    android:hint="@string/_00_00"
                                     android:layout_width="100dp"
                                     android:layout_height="wrap_content"
                                     android:layout_marginLeft="2dp"
@@ -465,7 +472,7 @@
                             android:id="@+id/invoice_item_4_checkbox"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Product 01" />
+                            android:text="Product 04" />
 
                         <androidx.constraintlayout.widget.ConstraintLayout
                             android:id="@+id/invoice_item_4_constraintLayout"
@@ -491,6 +498,8 @@
 
                                 <com.google.android.material.textfield.TextInputEditText
                                     android:id="@+id/invoice_item_4_editText"
+                                    android:inputType="numberDecimal"
+                                    android:hint="@string/_00_00"
                                     android:layout_width="100dp"
                                     android:layout_height="wrap_content"
                                     android:layout_marginLeft="2dp"
@@ -536,9 +545,11 @@
                 android:text="Total:" />
 
             <EditText
+                android:id="@+id/totalDisplay_editText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:hint="$00.00" />
+                android:hint="$00.00"
+                android:inputType="numberDecimal"/>
 
         </LinearLayout>
 
